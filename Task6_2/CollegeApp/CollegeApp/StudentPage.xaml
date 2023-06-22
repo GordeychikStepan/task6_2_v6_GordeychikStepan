@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollegeApp.StudentPage"
+             xmlns:converters="clr-namespace:CollegeApp">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/styles.css" />
+        <converters:IsBudgetConverter x:Key="IsBudgetConverter" />
+        <converters:DateFormatConverter x:Key="DateFormatConverter" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <BoxView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2"  BackgroundColor="Gray" />
+            <Label Grid.Row="0" Grid.Column="0" Text="{Binding FullName}" StyleClass="label-black" Grid.ColumnSpan="2" HorizontalTextAlignment="Center"/>
+
+            <Image Grid.Row="1" Grid.Column="0" x:Name="StudentPhoto" Grid.ColumnSpan="2" Source="{Binding Photo}" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="150" HeightRequest="150" />
+            
+            <Label Grid.Row="2" Grid.Column="0" Text="Дата рождения:" StyleClass="label-bold" />
+            <Label Grid.Row="2" Grid.Column="1" Text="{Binding DateOfBirth, Converter={StaticResource DateFormatConverter}}" StyleClass="label-value" />
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Форма обучения:" StyleClass="label-bold" />
+            <Label Grid.Row="3" Grid.Column="1" Text="{Binding IsBudget, Converter={StaticResource IsBudgetConverter}}" StyleClass="label-value" />
+
+            <Label Grid.Row="4" Grid.Column="0" Text="Обучение на курсе:" StyleClass="label-bold" />
+            <Label Grid.Row="4" Grid.Column="1" Text="{Binding Course}" StyleClass="label-value" />
+
+            <Label Grid.Row="5" Grid.Column="0" Text="Группа:" StyleClass="label-bold" />
+            <Label Grid.Row="5" Grid.Column="1" x:Name="GroupName" StyleClass="label-value" />
+
+            <Label Grid.Row="6" Grid.Column="0" Text="Специальность(-и):" StyleClass="label-bold" />
+            <Label Grid.Row="6" Grid.Column="1" x:Name="StudentSpecialties" StyleClass="label-value" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

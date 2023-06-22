@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollegeApp.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+
+        <StackLayout.Resources>
+            <StyleSheet Source="/styles.css" />
+        </StackLayout.Resources>
+
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="College!" 
+                   HorizontalTextAlignment="Center" 
+                   TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Доброго времени суток, выберите режим работы:" 
+               FontSize="Title" 
+               HorizontalOptions="Center"            
+			   VerticalOptions="Center"
+               Padding="30,10,30,0"
+               StyleId="welcomeLabel"/>
+
+        <Picker x:Name="myPicker"
+				Title="режим работы: (студент/преподователь)"
+				HorizontalOptions="Center"
+				VerticalOptions="Center"
+			    TextColor="White"
+                StyleId="welcomeLabel">
+
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Студент</x:String>
+                    <x:String>Преподователь</x:String>
+                    <x:String>Приемная комиссия</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Entry x:Name="userNameEntry"
+					   FontSize="17"
+					   Margin="80,30,80,0"
+					   Grid.ColumnSpan="3"
+					   Placeholder="Логин"
+					   PlaceholderColor="Gray" 
+                       HorizontalTextAlignment="Center"
+                       MaxLength="20"/>
+        <Entry x:Name="passwordEntry"
+					   FontSize="17"
+					   Margin="80,-5,80,0"
+					   IsPassword="True"
+					   Grid.ColumnSpan="3"
+					   Placeholder="Пароль"
+                       PlaceholderColor="Gray" 
+                       HorizontalTextAlignment="Center"
+                       MaxLength="20"/>
+        <Button x:Name="loginButton"
+                Text="Войти"
+                Margin="80,30,80,0"
+                StyleId="button"
+                Clicked="loginButton_Clicked"/> 
+
+    </StackLayout>
+
+</ContentPage>

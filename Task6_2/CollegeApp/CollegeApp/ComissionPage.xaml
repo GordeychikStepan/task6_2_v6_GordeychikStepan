@@ -1,0 +1,92 @@
+﻿<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="CollegeApp.ComissionPage"
+              NavigationPage.HasNavigationBar="False">
+
+    <CarouselPage.Resources>
+        <StyleSheet Source="/styles.css" />
+    </CarouselPage.Resources>
+
+    <ContentPage>
+        <StackLayout>
+            <Label Text="Добавление студентов" HorizontalTextAlignment="Center" StyleClass="label-bold"/>
+            <Entry Placeholder="ФИО" x:Name="fullNameEntry" />
+            <DatePicker x:Name="dateOfBirthPicker" />
+            <Label Text="Форма обучения платная:" HorizontalTextAlignment="Start" Margin="3,0,0,0"/>
+            <Switch x:Name="isBudgetSwitch" IsToggled="true" HorizontalOptions="Center" Margin="0,-27,0,0"/>
+            <Entry Placeholder="Курс" x:Name="courseEntry" />
+            <Picker x:Name="groupPicker" Title="Выберите группу" />
+            <Entry Placeholder="Логин" x:Name="loginEntry" />
+            <Entry Placeholder="Пароль" x:Name="passwordEntry" />
+            <Button Text="Добавить" Clicked="AddStudent_Clicked" StyleId="button"/>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage>
+        <StackLayout>
+            <Label Text="Редактирование студентов" HorizontalTextAlignment="Center" StyleClass="label-bold"/>
+            <StackLayout>
+                <Label Text="Фильтр:" Margin="3,0,0,0"/>
+                <Entry x:Name="editFilterEntry" TextChanged="EditFilterEntry_TextChanged" />
+            </StackLayout>
+            <ListView x:Name="studentsListView" ItemSelected="StudentsListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding FullName}" TextColor="White" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Entry Placeholder="ФИО" x:Name="fullNameEditEntry" />
+            <DatePicker x:Name="dateOfBirthEditPicker" />
+            <Label Text="Форма обучения платная:" HorizontalTextAlignment="Start" Margin="3,0,0,0"/>
+            <Switch x:Name="isBudgetEditSwitch" HorizontalOptions="Center" Margin="0,-27,0,0"/>
+            <Entry Placeholder="Курс" x:Name="courseEditEntry" />
+            <Entry Placeholder="ID группы" x:Name="groupIdEditEntry" />
+            <Entry Placeholder="Логин" x:Name="loginEditEntry" />
+            <Entry Placeholder="Пароль" x:Name="passwordEditEntry" />
+            <Button Text="Сохранить" Clicked="SaveStudent_Clicked" StyleId="button"/>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage>
+        <StackLayout>
+            <Label Text="Редактирование преподавателей" HorizontalTextAlignment="Center" StyleClass="label-bold"/>
+            <StackLayout>
+                <Label Text="Фильтр:" Margin="3,0,0,0"/>
+                <Entry x:Name="editTeacherFilterEntry" TextChanged="EditTeacherFilterEntry_TextChanged" />
+            </StackLayout>
+            <ListView x:Name="teachersListView" ItemSelected="TeachersListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding FullName}" TextColor="White"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Entry Placeholder="ФИО" x:Name="fullNameEditTeacherEntry_2" />
+            <Entry Placeholder="Нагрузка" x:Name="workloadEditEntry" />
+            <Entry Placeholder="Логин" x:Name="loginEditEntry_2" />
+            <Entry Placeholder="Пароль" x:Name="passwordEditEntry_2" />
+            <Label Text="Сотрудник приемной комиссии:" HorizontalTextAlignment="Start" Margin="3,0,0,0"/>
+            <Switch x:Name="isAdmissionEditSwitch" HorizontalOptions="Center" Margin="50,-27,0,0"/>
+            <Button Text="Сохранить" Clicked="SaveTeacher_Clicked" StyleId="button"/>
+        </StackLayout>
+    </ContentPage>
+    
+    <ContentPage>
+        <StackLayout>
+            <Label Text="Удаление студентов" HorizontalTextAlignment="Center" StyleClass="label-bold"/>
+            <StackLayout>
+                <Label Text="Фильтр:" Margin="3,0,0,0"/>
+                <Entry x:Name="deleteFilterEntry" TextChanged="DeleteFilterEntry_TextChanged" />
+            </StackLayout>
+            <ListView x:Name="deleteStudentsListView" ItemSelected="DeleteStudentsListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding FullName}" TextColor="White" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Удалить" Clicked="DeleteStudent_Clicked" StyleId="button"/>
+        </StackLayout>
+    </ContentPage>
+</CarouselPage>

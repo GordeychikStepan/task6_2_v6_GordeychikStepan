@@ -1,0 +1,66 @@
+^contentpage {
+	background-color: #2F2F2F;
+}
+
+#welcomeLabel {
+	text-align: center;
+}
+
+#button {
+	color: gray;
+	font-family: Consolas;
+	font-size: 18;
+	font-style: bold;
+	background: #d7d7d7;
+	border-radius: 50;
+}
+
+.labelToRemember {
+	font-size: small;
+}
+
+.helloLabel {
+	font-size: large;
+}
+
+.white {
+	color: black;
+	background-color: aliceblue;
+	font-style: bold;
+	font-family: Arial;
+}
+
+.checkBox {
+	color: white;
+}
+
+.BoldLineLabel {
+	font-style: bold;
+	text-decoration: underline;
+}
+
+.WelcomeLabel {
+	font-family: Arial;
+	font-style: bold;
+}
+
+.label-value {
+	text-align: left;
+	font-size: 18;
+}
+
+.label-bold {
+	text-align: left;
+	font-size: 18;
+	font-style: bold;
+}
+
+.label-black {
+	font-size: 18;
+	font-style: bold;
+	color: black;
+}
+
+.label-small {
+	font-size: 15.0;
+}
